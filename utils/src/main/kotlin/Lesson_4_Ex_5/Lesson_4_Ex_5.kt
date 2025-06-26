@@ -3,17 +3,24 @@ package Lesson_4_Ex_5
 fun main() {
 
     println("Введите наличие повреждений корабля (true/false):")
-    val isShipDamage = readLine()!!.toBoolean()
+    val isShipDamage = readln().toBoolean()
     println("Введите количество членов экипажа:")
-    val crewSize = readLine()!!.toInt()
+    val crewSize = readln().toInt()
     println("Введите количество ящиков с провизией:")
-    val provisionBoxes = readLine()!!.toInt()
+    val provisionBoxes = readln().toInt()
     println("Введите благоприятность погоды (true/false):")
-    val isWeatherFavorable = readLine()!!.toBoolean()
+    val isWeatherFavorable = readln().toBoolean()
 
-    val isMainScenarioMet = !isShipDamage && crewSize >= MIN_CREW_SIZE && crewSize <= MAX_CREW_SIZE && provisionBoxes > MIN_PROVISION_BOXES
-    val isAlternativeScenarioMet = isShipDamage && crewSize == REQUIRED_CREW_SIZE_FOR_DAMAGE && isWeatherFavorable && provisionBoxes >= MIN_PROVISION_BOXES
-    val isReadyToSail = isMainScenarioMet || isAlternativeScenarioMet
+    val isMainScenarioMet = !isShipDamage &&
+                            crewSize >= MIN_CREW_SIZE &&
+                            crewSize <= MAX_CREW_SIZE &&
+                            provisionBoxes > MIN_PROVISION_BOXES
+    val isAlternativeScenarioMet = isShipDamage &&
+                                  crewSize == REQUIRED_CREW_SIZE_FOR_DAMAGE &&
+                                  isWeatherFavorable &&
+                                  provisionBoxes >= MIN_PROVISION_BOXES
+    val isReadyToSail = isMainScenarioMet ||
+                        isAlternativeScenarioMet
 
     println("Корабль может отправиться в плавание: $isReadyToSail")
 
