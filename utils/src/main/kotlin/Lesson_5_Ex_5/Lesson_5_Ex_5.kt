@@ -13,10 +13,10 @@ fun main() {
 
     val userNumbers = listOf(userNumber1, userNumber2, userNumber3)
 
-    val matches = userNumbers.count { it in winningNumbers }
+    val matches = winningNumbers.intersect(userNumbers).size
 
     when (matches) {
-        3 -> println("Поздравляем! Вы угадали все числа и выиграли джекпот!")
+        NUMBER_COUNT -> println("Поздравляем! Вы угадали все числа и выиграли джекпот!")
         2 -> println("Вы угадали два числа и получаете крупный приз!")
         1 -> println("Вы угадали одно число и получаете утешительный приз!")
         else -> println("Неудача! Вы не угадали ни одного числа.")
